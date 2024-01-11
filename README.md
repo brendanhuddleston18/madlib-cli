@@ -1,6 +1,6 @@
-# LAB = Class 02
+# LAB = Class 03
 
-## Project: Math Series
+## Project: Madlib CLI
 
 ### Author: Brendan Huddleston
 
@@ -17,4 +17,4 @@ pytest==7.4.4
 
 pytest -s will run the tests for this lab
 
-Tests: Checks the fibonacci/lucas function's capability of finding the value of the sequence at user input's index
+Tests: Tests the the reading, parsing and merging of a madlib template with user inputs
