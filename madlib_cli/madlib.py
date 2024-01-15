@@ -1,4 +1,3 @@
-import sys
 import re 
 dark_stormy_night_path = "assets/dark_and_stormy_night_template.txt"
 
@@ -15,16 +14,15 @@ user_answers = []
 empty_template = ''
 
 def madlib():
-  if "-s" not in sys.argv:
-    start = input("Are you ready to start? \nyes/no\n> ")
-    while start.lower() != 'yes':
-      start = input("Are you ready to start? yes/no")
-    if start.lower() == 'yes':
-      read_template(dark_stormy_night_path)
-      parse_template(madlib_template)
-      for word_type in split_word_types[0]:
-        user_answers.append(input(f'Enter a {word_type}\n> '))
-      merge(empty_template, user_answers)
+  start = input("Are you ready to start? \nyes/no\n> ")
+  while start.lower() != 'yes':
+    start = input("Are you ready to start? yes/no")
+  if start.lower() == 'yes':
+    read_template(dark_stormy_night_path)
+    parse_template(madlib_template)
+    for word_type in split_word_types[0]:
+      user_answers.append(input(f'Enter a {word_type}\n> '))
+    merge(empty_template, user_answers)
 
 
 def read_template(path):
@@ -53,4 +51,6 @@ def merge(template, user_answers):
   complete_madlib = template.format(*user_answers)
   print(complete_madlib)
   return complete_madlib
-madlib()
+
+if __name__ == "__main__":
+  madlib()
