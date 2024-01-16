@@ -37,17 +37,10 @@ def parse_template(template):
   pattern = re.compile(r'{(.*?)}')
   parts = pattern.findall(template)
   split_word_types.append(parts)
-  stripped_template = re.sub(r'{(.*?)}', '{}', template)
-  print(stripped_template)
-  return stripped_template, tuple(parts)
+  empty_template = re.sub(r'{(.*?)}', '{}', template)
+  return empty_template, tuple(parts)
 
 def merge(template, user_answers):
-  split_template = template.split(' ')
-  index = 0
-  for i, word in enumerate(split_template):
-    if '{' in word or '}' in word:
-      split_template[i] = user_answers[index]
-      index +=1
   complete_madlib = template.format(*user_answers)
   print(complete_madlib)
   return complete_madlib
